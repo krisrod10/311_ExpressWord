@@ -18,6 +18,6 @@ let port = process.env.PORT;
 
 // i want to use router
 
-app.listen(port, function(){
+app.listen(port, function () {
     console.log("Starting the app server on port", port);
 })

@@ -13,12 +13,12 @@ let connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query("select now()" , function(err,rows){
-if(err){
-    console.log("DB query error", err);
-}else {
-    console.log("Query results", rows);
-}
+connection.query("use " + process.env.MYSQL_DATABASE, function (err, rows) {
+    if (err) {
+        console.log("DB query error", err);
+    } else {
+        console.log("Query results", rows);
+    }
 });
 
-module.exports=connection;
+module.exports = connection;

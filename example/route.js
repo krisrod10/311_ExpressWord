@@ -2,20 +2,17 @@ let express = require("express");
 
 let router = express.Router();
 
+let controller = require("./controller");
 
 // POST /record -body {word: "Test"}
 // will add the word to our table in the database
-router.post("/record", function(req, res) {
-   console.log("Inside POST /record", req.body);
-   res.json("Place Holder");
-})
+router.post("/record", controller.addWord);
 
 
 // GET /record
 // will list all of the prevoiusly recorded words
-router.get("/record", function(req, res) {
-    console.log(" Inside the GET /record");
-    res.json("Place Holder");
-})
+router.get("/record", controller.getWords);
+
+
 
 module.exports = router;
