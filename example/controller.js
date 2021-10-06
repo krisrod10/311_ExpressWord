@@ -1,6 +1,6 @@
 // this is connecting the connection.query from requiring it from that file
 
-let db = require("./db");
+let db = require('../db/db');
 
 let addWord = function (req, res) {
 

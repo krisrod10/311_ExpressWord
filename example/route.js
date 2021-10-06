@@ -9,7 +9,7 @@ let controller = require("./controller");
 router.post("/record", controller.addWord);
 
 
-// GET /record
+ //GET /record
 // will list all of the prevoiusly recorded words
 router.get("/record", controller.getWords);
 

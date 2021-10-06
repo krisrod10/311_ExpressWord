@@ -1,15 +1,15 @@
-
-
-let express = require("express");
-
-let router = express.Router();
+let controller = require("../controller/users");
 
 
 
 
 // create user
 // POST /users -body {"username", "fullName", 'Email, "password"}
+router.post("/users", controller.createUser);
 
+// list users
+// GET / users (make sure to keep the passwords out of this)
+router.get("/users", controller.listUsers);
 
 
 // updating user
@@ -18,17 +18,8 @@ let router = express.Router();
 
 
 
-// list users
-// GET / users (make sure to keep the passwords out of this)
-
-
 // delete users
 // DELETE /users/:id
-
-
-
-
-
 
 
 
