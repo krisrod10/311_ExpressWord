@@ -59,7 +59,7 @@ let getWords = function (req, res) {
   // 3. send the array back on the response
 }
 
-/**
+/***
  * [
   {
       "word": "Hello"
