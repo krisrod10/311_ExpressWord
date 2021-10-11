@@ -12,12 +12,13 @@ let addWord = function (req, res) {
 
   let word = req.body.word;
 
+  
   // get the word from the request 
-  // 2:37:03
+
   // send the word as an insert into the data base 
   // insert into words (word) values('elephant');
 
-  let sql = `INSERT INTO words(word) values ('${word}');`
+  let sql = `INSERT INTO words(word) values ('${word}');`;
 
   db.query(sql, function (err, rows) {
     if (err) {
@@ -69,5 +70,5 @@ let getWords = function (req, res) {
 ["hello", "hello2"]
  */
 
-module.exports = { addWord, getWords };
+module.exports={addWord, getWords}
 

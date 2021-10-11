@@ -11,8 +11,10 @@ app.use(express.json());
 let exampleRoute = require("./example/route");
 app.use(exampleRoute);
 
-let usersRouters = require("./router/users");
-appuse(usersRouters);
+let userRoutes = require("./router/users")
+app.use(userRoutes);
+
+require("./db/db");
 
 
 let port = process.env.PORT;

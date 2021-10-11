@@ -8,7 +8,6 @@ let controller = require("./controller");
 // will add the word to our table in the database
 router.post("/record", controller.addWord);
 
-
  //GET /record
 // will list all of the prevoiusly recorded words
 router.get("/record", controller.getWords);

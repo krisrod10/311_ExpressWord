@@ -1,25 +1,35 @@
-let controller = require("../controller/users");
+
+
+let express = require("express");
+
+let router = express.Router();
+
+let controller = require("../controller/users")
 
 
 
-
-// create user
-// POST /users -body {"username", "fullName", 'Email, "password"}
+// creare users
+// POST /users -body{"username", "fullname", "email", "password"}
 router.post("/users", controller.createUser);
 
+
+
+
+
+// updating users
+// PUT /users/:id -body{"fullName", "email"}
+// PUT /users/password/:id -body{"password"}
+
+
+
 // list users
-// GET / users (make sure to keep the passwords out of this)
+// GET /users (make sure to keep the password out of this)
 router.get("/users", controller.listUsers);
 
-
-// updating user
-// PUT /users/:id -body {"fullname", 'email, 'password'}
-// PUT /users/password/:id -body {"password"}
-
-
-
 // delete users
-// DELETE /users/:id
+// DELETE /USERS/:id
+
+
 
 
 

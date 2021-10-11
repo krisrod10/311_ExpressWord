@@ -1,7 +1,5 @@
-
 let mysql = require('mysql');
-require("dotenv").config();
-
+require('dotenv').config();
 
 let connection = mysql.createConnection({
     host: process.env.MYSQL_HOST,
@@ -13,12 +11,13 @@ let connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query("use " + process.env.MYSQL_DATABASE, function (err, rows) {
-    if (err) {
-        console.log("DB query error", err);
-    } else {
-        console.log("Query results", rows);
+connection.query("use "+process.env.MYSQL_DATABASE , function(error, rows){
+    if(error){
+        console.log("DB Query error", error);
+    } else{
+        console.log("Query Results", rows);
     }
 });
 
-module.exports = connection;
+
+module.exports=connection;
