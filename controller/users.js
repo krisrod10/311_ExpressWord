@@ -43,9 +43,28 @@ let createUser = function (req, res) {
 
 
 let listUsers = function (req, res) {
-    console.log("Inside listUser")
-    res.json("Place Holder listUser")
+    console.log("GET /users: ", req);
+res.json("Inside place holder");   
 }
 
+let deleteUsers = function (req,res) {
+    let users = [];
+    console.log("INSIDE delete");
+    res.json("Place Holder");
+    const { id } = req.params;
 
-module.exports = { createUser, listUsers }
+    const deleted = users.find(users => users.id === id);
+    if(deleted){
+   users = users.filter(users => users.id <= id);
+
+    } else{
+        res.status(204).json("User you are looking for does not exist")
+    }
+}
+
+let putUsers = function(req,res){
+   console.log("INSIDE PUT");
+   res.json("PLACE HOLDER");
+    
+}
+module.exports = { createUser, listUsers , deleteUsers, putUsers};
