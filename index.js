@@ -8,7 +8,7 @@ let app = express();
 // enable the application to be able to parse JSON bodies in post/put
 app.use(express.json());
 
-let exampleRoute = require("./example/route");
+let exampleRoute = require("./router/word");
 app.use(exampleRoute);
 
 let userRoutes = require("./router/users")

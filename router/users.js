@@ -25,7 +25,7 @@ router.put("/users", controller.putUsers);
 
 // list users
 // GET /users (make sure to keep the password out of this)
-router.get("/users", controller.listUsers);
+router.get("/users",  controller.listUsers);
 
 // delete users
 // DELETE /USERS/:id
