@@ -3,7 +3,7 @@
 let db = require('../db/db');
 
 let addWord = function (req, res) {
-console.log("In the add word function");
+console.log("In the addWord function", req.js311Austin);
   /**
    * {
    * "word": "elephant"
