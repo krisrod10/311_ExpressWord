@@ -1,9 +1,9 @@
-const { Router } = require("express");
-const e = require("express");
 const express = require("express");
 const jsonwebtoken = require("jsonwebtoken");
 const dotenv = require("dotenv").config();
 let db = require("../db/db");
+
+
 
 let isAdmin = (req,res,next) => {
     if(req.isAdmin){
@@ -21,7 +21,7 @@ let checkJwt = (req, res, next) => {
     let token;
     if(req.headers.authorization) {
         let bearer = req.headers.authorization.split(" ");
-        let token = bearer[1];
+         token = bearer[1];
     } else{
         token = null;
     }
