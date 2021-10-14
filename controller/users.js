@@ -36,6 +36,7 @@ let createUser = function (req, res) {
              console.log("INSERT user failed", error);
              res.sendStatus(500);
          } else {
+             console.log("USER ADDED")
              res.sendStatus(204);
          }
      })

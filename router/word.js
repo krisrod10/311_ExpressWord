@@ -4,11 +4,11 @@ let router = express.Router();
 
 let controller = require("../controller/word");
 
-let auth = require("../middleware/auth");
+
 
 // POST /record -body {word: "Test"}
 // will add the word to our table in the database
-router.post("/record", auth.loginCheck, controller.addWord);
+router.post("/record",  controller.addWord);
 
  //GET /record
 // will list all of the prevoiusly recorded words

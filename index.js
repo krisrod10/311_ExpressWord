@@ -4,7 +4,10 @@
 let express = require("express");
 let env = require("dotenv").config();
 let app = express();
+// to get the password hash, since our databses does not store the password correctly
+let bcrypt = require("bcrypt");
 
+let jwtSecret = process.env.jwtSecret;
 // enable the application to be able to parse JSON bodies in post/put
 app.use(express.json());
 
@@ -14,6 +17,8 @@ app.use(exampleRoute);
 let userRoutes = require("./router/users")
 app.use(userRoutes);
 
+let midRoute = require("./router/auth");
+app.use(midRoute);
 require("./db/db");
 
 
