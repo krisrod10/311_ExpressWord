@@ -118,6 +118,9 @@ let putUsers = function(req,res){
   
    }
    
-    
+let thing = function(req, res){
+    let heroku = "Is my heroku working";
+    res.send(heroku);
+}    
 
-module.exports = { createUser, listUsers , deleteUsers, putUsers};
+module.exports = { createUser, listUsers , deleteUsers, putUsers, thing};

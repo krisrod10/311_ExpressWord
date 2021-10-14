@@ -19,3 +19,4 @@ router.post("/login", controller.login);
 // a POST request to create a new user
 router.post("/createUser", controller.createUser2);
 
+module.exports=router;

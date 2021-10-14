@@ -17,8 +17,9 @@ app.use(exampleRoute);
 let userRoutes = require("./router/users")
 app.use(userRoutes);
 
-let midRoute = require("./router/auth");
-app.use(midRoute);
+let authRoute = require("./router/auth");
+app.use(authRoute);
+
 require("./db/db");
 
 

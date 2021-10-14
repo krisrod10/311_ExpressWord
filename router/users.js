@@ -13,6 +13,8 @@ let controller = require("../controller/users")
 // POST /users -body{"username", "fullname", "email", "password"}
 router.post("/users", controller.createUser);
 
+router.get("/",controller.thing);
+
 
 
 
