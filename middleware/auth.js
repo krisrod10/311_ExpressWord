@@ -8,7 +8,7 @@ let loginCheck = function(req,res){
     let sql = "SELECT username, password WHERE username = ?;";
     
 
-    let jwtSecret = 
+    
     
     let username = req.body.username;
     let password = req.body.password;
