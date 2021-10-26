@@ -4,13 +4,25 @@
 let express = require("express");
 let env = require("dotenv").config();
 let app = express();
+const { auth, requiresAuth } = require('express-openid-connect');
+let jsonwebtoken = require("jsonwebtoken");
 // to get the password hash, since our databses does not store the password correctly
 let bcrypt = require("bcrypt");
 
 let jwtSecret = process.env.jwtSecret;
 // enable the application to be able to parse JSON bodies in post/put
-app.use(express.json());
 
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(
+    auth({
+        issuerBaseURL:process.env.ISSUER_BASE_URL,
+        baseURL:process.env.BASE_URL,
+        clientID:process.env.CLIENT_ID,
+        secret:process.env.SECRET
+    })
+)
+
+let midWare = require("./middleware/auth");
 let exampleRoute = require("./router/word");
 app.use(exampleRoute);
 

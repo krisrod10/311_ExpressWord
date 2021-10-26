@@ -1,5 +1,6 @@
 let express = require("express");
-
+let jsonwebtoken = require("jsonwebtoken");
+let app = express();
 let db = require("../db/db");
 
 
@@ -7,26 +8,26 @@ let loginCheck = function(req,res){
     console.log("Inside login check");
     let sql = "SELECT username, password WHERE username = ?;";
     
-
     
-    
-    let username = req.body.username;
-    let password = req.body.password;
 
-    let params = [];
-    params.push(username);
-    params.push(password);
+  }
+const { auth } = require('express-openid-connect');
 
-    db.query(sql, params, function(error, rows){
-        if(error){
-            console.log("Wrong username or password");
-            res.sendStatus(204);
-        } else{
-            console.log("That username and password worked");
-            res.sendStatus(204);
-        }
-    })
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: 'a long, randomly-generated string stored in env',
+  baseURL: 'http://localhost:8000',
+  clientID: '2HLGiVthIo6gDsPWhEUrRIjpoq6lxVxb',
+  issuerBaseURL: 'https://dev-ubpa2sgx.us.auth0.com'
+};
 
-}
 
-module.exports= {loginCheck};
+app.use(auth(config));
+
+// req.isAuthenticated is provided from the auth router
+app.get('/', (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
+
+module.exports= {loginCheck, config};
