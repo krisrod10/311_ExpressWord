@@ -1,5 +1,3 @@
-// this is the starting point of our back end  Express server
-
 // this is a express app
 let express = require("express");
 let env = require("dotenv").config();
@@ -8,7 +6,6 @@ const { auth, requiresAuth } = require('express-openid-connect');
 let jsonwebtoken = require("jsonwebtoken");
 // to get the password hash, since our databses does not store the password correctly
 let bcrypt = require("bcrypt");
-
 let jwtSecret = process.env.jwtSecret;
 // enable the application to be able to parse JSON bodies in post/put
 
@@ -22,7 +19,13 @@ app.use(
     })
 )
 
-let midWare = require("./middleware/auth");
+app.get('/', function(req,res){
+    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+})
+
+app.get('/profile', requiresAuth(), function(req,res){
+    res.send(JSON.stringify(req.oidc.user));
+})
 let exampleRoute = require("./router/word");
 app.use(exampleRoute);
 
